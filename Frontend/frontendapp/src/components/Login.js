@@ -1,4 +1,5 @@
 import React from "react";
+import api from "../api/api";
 
 class Login extends React.Component{
 
@@ -15,10 +16,12 @@ class Login extends React.Component{
         this.setState({credentials: cred});
     }
 
-    login = event => {
-        console.log(this.state.credentials);
-    }
+    login = async (event) => {
+        const response = await api.post("/auth/", JSON.stringify(this.state.credentials));
+        console.log(response.data);
 
+    }
+    
     render(){
         return (
             <div className="login-component">
