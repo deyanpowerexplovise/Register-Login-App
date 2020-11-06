@@ -18,8 +18,12 @@ class Login extends React.Component{
 
     login = async (event) => {
         const response = await api.post("/auth/", JSON.stringify(this.state.credentials));
-        console.log(response.data);
+        this.props.userLogin(response.data);
+    }
 
+    register = async (event) => {
+        const response = await api.post("/api/users/", JSON.stringify(this.state.credentials));
+        console.log(response.data);
     }
     
     render(){
@@ -33,6 +37,7 @@ class Login extends React.Component{
                 <input type="password" name="password" value={this.state.credentials.password} onChange={this.inputChanged} />
                 <br />
                 <button onClick={this.login}>Login</button>
+                <button onClick={this.register}>Register</button>
             </div>
         );   
     }
