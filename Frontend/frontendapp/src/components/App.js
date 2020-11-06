@@ -1,5 +1,11 @@
+import Login from "./Login";
+
 const App = () => {
-    return ("Inicio FrontEnd");
+    return (
+        <div className="App">
+            <Login />
+        </div>
+    );
 };
 
 export default App;
