@@ -18,7 +18,7 @@ class Login extends React.Component{
 
     login = async (event) => {
         const response = await api.post("/auth/", JSON.stringify(this.state.credentials));
-        this.props.userLogin(response.data);
+        this.props.userLogin(response.data.token);
     }
 
     register = async (event) => {
